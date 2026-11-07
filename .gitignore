@@ -1,0 +1,24 @@
+.DS_Store
+
+# CMake
+build/
+cmake-build-*/
+
+# .NET
+bin/
+obj/
+*.user
+
+# capture output
+login_capture.log
+credentials.txt
+.vscode/
+cellmate2cs/Properties/launchSettings.json
+/__pycache__
+/build-win
+
+creds_relogin.txt
+/temp
+winbuild.log
+*.cmd
+*.png
