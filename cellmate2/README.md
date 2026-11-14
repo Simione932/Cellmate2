@@ -44,11 +44,13 @@ token bound to the phone's device profile — server rejects PC-side login
 replays (`US_100015`) — so in practice: re-run `capture_login.py` when the
 token stops working.
 
-`capture_login.py` drives the qiui app over adb (UIA taps, logcat capture)
-and needs a phone with USB debugging:
+`capture_login2.py` drives the qiui app over adb (UIA taps, logcat capture),
+handles logcat continuation lines, falls back to decrypted responses, retries
+on stalled network, and extracts the session token from websocket URLs.
+You'll need `adb` installed and USB debugging enabled on the phone.
 
 ```
-QIUI_ADB=E:/path/to/adb.exe python capture_login.py <email> <password>
+QIUI_ADB=E:/path/to/adb.exe python capture_login2.py <email> <password>
 # writes ./credentials.txt next to the script/cwd
 ```
 

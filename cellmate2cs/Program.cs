@@ -506,7 +506,7 @@ internal static class Program
         {
             { "platformType", "2" },
             { "userName", user },
-            { "versionNum", "7.0.38" },
+            { "versionNum", "7.0.58" },
             { "registrationId", "" },
             { "loginType", "3" },
             { "passWord", pass },
@@ -518,7 +518,7 @@ internal static class Program
 
         JsonElement j = ApiPost(base_url, "api/feign/userInfo/login", JsonObj(body), "");
         if (Debug) Console.Error.WriteLine("[debug] login response: " + j.GetRawText());
-        string state = j.GetProperty("state").GetString() ?? "";
+        string state = j.TryGetProperty("state", out var st) ? (st.GetString() ?? "") : "";
         if (state != "success")
             throw new Exception("login failed: " + j.GetRawText());
 

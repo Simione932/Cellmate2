@@ -19,7 +19,7 @@ which is written by:
 
 ```bash
 cd Cellmate2
-python3 capture_login.py <email> <password> [out-log-file] [creds-file]
+python3 capture_login2.py <email> <password> [out-log-file] [creds-file]
 ```
 
 The script clears and relaunches the app over adb, fills in the login form,
@@ -31,7 +31,7 @@ Two things to keep in mind:
 - **Single active session** — any new login (app or these tools) invalidates
   previous tokens. Always run fresh; don't reuse old tokens.
 - **`blackBox` is single-use / session-scoped** — if logins start failing with
-  `US_100065`, just re-run `capture_login.py`.
+  `US_100065`, just re-run `capture_login2.py`.
 
 Prefer env vars? They override `credentials.txt` (embedded constants are the
 last resort): `QIUI_EMAIL`, `QIUI_PASSWORD` (plain), `QIUI_BLACKBOX`,

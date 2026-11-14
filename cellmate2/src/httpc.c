@@ -69,7 +69,7 @@ int http_req(const char* url, const char* body, const char* token,
     }
     CURLcode rc = curl_easy_perform(h);
     if (rc == CURLE_OK && b.cap == (size_t)-1) rc = CURLE_WRITE_ERROR;
-    long code = 0;
+    double code = 0;
     curl_easy_getinfo(h, CURLINFO_RESPONSE_CODE, &code);
     *status = code;
     *out = b.data ? b.data : strdup("");
